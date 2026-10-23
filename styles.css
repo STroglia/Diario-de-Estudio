@@ -1,0 +1,245 @@
+:root {
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --accent: #6366f1;
+  --accent-dark: #4f46e5;
+  --danger: #dc2626;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #e0e7ff 0%, var(--bg) 320px);
+}
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.app__header {
+  text-align: center;
+}
+
+.app__title {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+}
+
+/* Tarjeta de racha */
+.streak {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 1.5rem 1rem;
+  box-shadow: var(--shadow);
+}
+
+.streak__label {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.streak__value {
+  margin: 0.35rem 0 0;
+  font-size: clamp(3.5rem, 12vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.streak__unit {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Tarjetas */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+
+.card h2 {
+  margin: 0 0 1.25rem;
+  font-size: 1.3rem;
+}
+
+/* Formulario */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.form-row .field {
+  margin-bottom: 0;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  font-size: 1rem;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.btn {
+  width: 100%;
+  margin-top: 0.75rem;
+  padding: 0.85rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(1.06);
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.5);
+  outline-offset: 2px;
+}
+
+/* Historial */
+.history__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.history__header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.history__count {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.history__list {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.history__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.history__item:last-child {
+  border-bottom: none;
+}
+
+.history__date {
+  min-width: 140px;
+  font-weight: 700;
+}
+
+.history__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.history__materia {
+  font-weight: 600;
+}
+
+.history__tema {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.history__minutos {
+  font-weight: 700;
+  color: var(--accent-dark);
+  white-space: nowrap;
+}
+
+.history__delete {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--danger);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.history__delete:hover {
+  background: #fef2f2;
+}
+
+.history__empty {
+  color: var(--muted);
+  text-align: center;
+  margin: 1rem 0 0;
+}
+
+/* Responsive */
+@media (max-width: 560px) {
+  .app {
+    padding: 1.25rem 0.75rem 3rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .history__date {
+    min-width: 0;
+  }
+}

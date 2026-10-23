@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diario de Estudio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <h1 class="app__title">Diario de Estudio</h1>
+
+      <section class="streak" aria-labelledby="streak-title">
+        <p id="streak-title" class="streak__label">Racha actual</p>
+        <p class="streak__value" id="streakValue" aria-live="polite">0</p>
+        <p class="streak__unit">días consecutivos de estudio</p>
+      </section>
+    </header>
+
+    <section class="card" aria-labelledby="form-title">
+      <h2 id="form-title">Registrar sesión</h2>
+      <form id="sessionForm">
+        <div class="form-row">
+          <div class="field">
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" name="fecha" required />
+          </div>
+          <div class="field">
+            <label for="minutos">Minutos</label>
+            <input type="number" id="minutos" name="minutos" min="1" max="1440" step="1" required />
+          </div>
+        </div>
+        <div class="field">
+          <label for="materia">Materia</label>
+          <input type="text" id="materia" name="materia" placeholder="Ej.: Matemática" required />
+        </div>
+        <div class="field">
+          <label for="tema">Tema</label>
+          <input type="text" id="tema" name="tema" placeholder="Ej.: Álgebra lineal" required />
+        </div>
+        <button type="submit" class="btn">Guardar sesión</button>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="history-title">
+      <div class="history__header">
+        <h2 id="history-title">Historial</h2>
+        <span id="historyCount" class="history__count"></span>
+      </div>
+      <ul id="historyList" class="history__list"></ul>
+      <p id="historyEmpty" class="history__empty">Todavía no hay sesiones registradas. ¡Tu primera sesión te espera!</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
